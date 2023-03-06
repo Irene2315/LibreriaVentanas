@@ -144,7 +144,7 @@ public class InsertarPrestamo extends JFrame {
 	}
 	
 	public void llamadaHijo() {
-		OtrasOpcionesPrestamo dialog = new OtrasOpcionesPrestamo () ;
+		OtrasOpcionesPrestamo dialog = new OtrasOpcionesPrestamo (this) ;
 		dialog.setModal (true);
 		dialog.setVisible(true);
 	}
