@@ -136,9 +136,16 @@ public class InsertarPrestamo extends JFrame {
 		JButton otrasOpciones = new JButton("OTRAS OPCIONES");
 		otrasOpciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				llamadaHijo();
 			}
 		});
 		otrasOpciones.setBounds(286, 109, 121, 23);
 		contentPane.add(otrasOpciones);
+	}
+	
+	public void llamadaHijo() {
+		OtrasOpcionesPrestamo dialog = new OtrasOpcionesPrestamo () ;
+		dialog.setModal (true);
+		dialog.setVisible(true);
 	}
 }
