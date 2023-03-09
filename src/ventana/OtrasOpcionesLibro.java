@@ -116,6 +116,37 @@ public class OtrasOpcionesLibro extends JDialog {
 			borrar.setBounds(291, 103, 89, 23);
 			contentPanel.add(borrar);
 		}
+		
+		{
+			JButton modificar = new JButton("MODIFICAR");
+			modificar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					  int id  = Integer.parseInt(IDLibroTxt.getText());
+					    
+						GestorBBDD ggbdd = new GestorBBDD();
+						ggbdd.conectar();
+						Libro libro = ggbdd.getLibro(id);
+						
+						String tituloLM = tituloTxt.getText();
+						String autorLM = autorTxt.getText();
+						int numPagLM = Integer.parseInt(numPaginasTxt.getText());
+						
+						libro.setTitulo(tituloLM);
+						libro.setAutor(autorLM);
+						libro.setNumPag(numPagLM);
+						
+						ggbdd.modificarLibro(libro);
+						try {
+							ggbdd.cerrar();
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+				}
+			});
+			modificar.setBounds(291, 156, 109, 23);
+			contentPanel.add(modificar);
+		}
 		{
 			JLabel titulo = new JLabel("TITULO");
 			titulo.setBounds(53, 90, 46, 14);
@@ -149,36 +180,7 @@ public class OtrasOpcionesLibro extends JDialog {
 			contentPanel.add(numPaginasTxt);
 			numPaginasTxt.setColumns(10);
 		}
-		{
-			JButton modificar = new JButton("MODIFICAR");
-			modificar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					  int id  = Integer.parseInt(IDLibroTxt.getText());
-					    
-						GestorBBDD ggbdd = new GestorBBDD();
-						ggbdd.conectar();
-						Libro libro = ggbdd.getLibro(id);
-						
-						String tituloLM = tituloTxt.getText();
-						String autorLM = autorTxt.getText();
-						int numPagLM = Integer.parseInt(numPaginasTxt.getText());
-						
-						libro.setTitulo(tituloLM);
-						libro.setAutor(autorLM);
-						libro.setNumPag(numPagLM);
-						
-						ggbdd.modificarLibro(libro);
-						try {
-							ggbdd.cerrar();
-						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-				}
-			});
-			modificar.setBounds(291, 156, 109, 23);
-			contentPanel.add(modificar);
-		}
+		
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBounds(0, 228, 434, 33);
