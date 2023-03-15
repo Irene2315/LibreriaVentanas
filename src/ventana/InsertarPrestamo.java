@@ -3,6 +3,7 @@ package ventana;
 import java.awt.EventQueue;
 
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 
 public class InsertarPrestamo extends JFrame {
@@ -101,19 +103,25 @@ public class InsertarPrestamo extends JFrame {
 		JButton insertar = new JButton("INSERTAR");
 		insertar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String IDLibroP = IDLibroTxt.getText();
-				String IDSocioP = IDSocioTxt.getText();
-				String fechaP = fechaTxt.getText();
-				String devueltoP = devueltoTxt.getText();
+				int  IDLibroP = Integer.parseInt(IDLibroTxt.getText());
+				int IDSocioP = Integer.parseInt(IDSocioTxt.getText());
+				SimpleDateFormat formatoLecturaFecha = new SimpleDateFormat("dd-MM-yyyy");
+				
+				Date fechaP;
+				try {
+					fechaP = formatoLecturaFecha.parse(fechaTxt.getText());
+				
+				boolean devueltoP = Boolean.parseBoolean
+						(devueltoTxt.getText());
 
 				Prestamo prestamo = new Prestamo();
 
-				try {
-					prestamo.setIdLibro(Integer.parseInt(IDLibroP));
-					prestamo.setIdSocio(Integer.parseInt(IDSocioP));
-					SimpleDateFormat formatoLecturaFecha = new SimpleDateFormat("dd-MM-yyyy");
-					prestamo.setFecha(formatoLecturaFecha.parse(fechaP));
-					prestamo.setDevuelto(Boolean.parseBoolean(devueltoP));
+				
+					prestamo.setIdLibro(IDLibroP);
+					prestamo.setIdSocio(IDSocioP);
+					
+					prestamo.setFecha(fechaP);
+					prestamo.setDevuelto(devueltoP);
 
 					GestorBBDD gbb = new GestorBBDD();
 					gbb.conectar();

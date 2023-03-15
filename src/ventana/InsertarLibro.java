@@ -121,8 +121,7 @@ public class InsertarLibro extends JFrame {
 			}
 		});
 		otrasOpciones.setBounds(277, 124, 147, 23);
-		introducirLibro.add(otrasOpciones);
-		
+		introducirLibro.add(otrasOpciones);	
 
 	}
 	
@@ -130,6 +129,5 @@ public class InsertarLibro extends JFrame {
 		OtrasOpcionesLibro dialog = new OtrasOpcionesLibro(this);
 		dialog.setModal(true);
 		dialog.setVisible(true);
-	}
-	
+	}	
 }
