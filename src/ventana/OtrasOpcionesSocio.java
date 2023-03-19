@@ -67,8 +67,6 @@ public class OtrasOpcionesSocio extends JDialog {
 		contentPanel.add(IDTxt);
 		IDTxt.setColumns(10);
 		
-		
-		
 		JLabel otrasOpcionesSocio = new JLabel("OTRAS OPCIONES SOCIO");
 		otrasOpcionesSocio.setBounds(133, 11, 163, 14);
 		contentPanel.add(otrasOpcionesSocio);
@@ -112,7 +110,6 @@ public class OtrasOpcionesSocio extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				GestorBBDD gdd = new GestorBBDD();
 				int IDS = Integer.parseInt(IDTxt.getText());
-				
 				
 				gdd.conectar();
 				try {
@@ -161,12 +158,7 @@ public class OtrasOpcionesSocio extends JDialog {
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}
-					
-					
-				
-				
-				
+					}	
 			}
 		});
 		modificar.setBounds(287, 161, 107, 23);

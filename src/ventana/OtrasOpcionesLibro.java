@@ -90,7 +90,6 @@ public class OtrasOpcionesLibro extends JDialog {
 						e1.printStackTrace();
 					}
 					
-					
 				}
 			});
 			Cargar.setBounds(291, 53, 89, 23);

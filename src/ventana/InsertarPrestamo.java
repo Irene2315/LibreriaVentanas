@@ -116,7 +116,6 @@ public class InsertarPrestamo extends JFrame {
 
 				Prestamo prestamo = new Prestamo();
 
-				
 					prestamo.setIdLibro(IDLibroP);
 					prestamo.setIdSocio(IDSocioP);
 					
